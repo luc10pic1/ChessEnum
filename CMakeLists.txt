@@ -3,6 +3,9 @@ project(Chess)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCE_FILES main.cpp pieces.cpp pieces.h )
+add_subdirectory(test)
 
-add_executable(Chess ${SOURCE_FILES})
+set(SOURCE_FILES pieces.cpp pieces.h )
+add_executable(Chess main.cpp)
+add_library(pieces ${SOURCE_FILES})
+target_link_libraries(Chess pieces)
